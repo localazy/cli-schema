@@ -1,0 +1,22 @@
+{
+  "$schema": "../localazy.json",
+  "writeKey": "test",
+  "readKey": "test2",  
+  "transformations": [],
+  "download": {
+    "folder": ".",
+    "includeSourceLang": true,
+    "excludedLangs": [
+      "cs"
+    ],
+    "files": [
+      {
+        "group": "test",
+        "conditions": [
+          "sadfasdf",
+          10
+        ]
+      }
+    ]   
+  }
+}
