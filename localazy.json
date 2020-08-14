@@ -1,4 +1,7 @@
 {
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://raw.githubusercontent.com/localazy/cli-schema/master/localazy.json",
+  "type": "object",
   "default": {},
   "description": "Schema definition for Localazy CLI configuration file",
   "required": [],
