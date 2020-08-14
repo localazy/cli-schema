@@ -1,1 +1,354 @@
-{}
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://raw.githubusercontent.com/localazy/cli-schema/master/localazy.json",
+  "type": "object",
+  "title": "The root schema",
+  "description": "The root schema comprises the entire JSON document.",
+  "default": {},
+  "required": [
+      "writeKey",
+      "readKey",
+      "transformations",
+      "download",
+      "upload"
+  ],
+  "properties": {
+      "writeKey": {
+          "$id": "#/properties/writeKey",
+          "type": "string",
+          "title": "The writeKey schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": ""
+      },
+      "readKey": {
+          "$id": "#/properties/readKey",
+          "type": "string",
+          "title": "The readKey schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": ""
+      },
+      "transformations": {
+          "$id": "#/properties/transformations",
+          "type": "array",
+          "title": "The transformations schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": [],
+          "uniqueItems": true,
+          "additionalItems": true,
+          "items": {
+              "$id": "#/properties/transformations/items",
+              "anyOf": [
+                  {
+                      "$id": "#/properties/transformations/items/anyOf/0",
+                      "type": "object",
+                      "title": "The first anyOf schema",
+                      "description": "An explanation about the purpose of this instance.",
+                      "default": {},
+                      "required": [
+                          "name",
+                          "source",
+                          "operations"
+                      ],
+                      "properties": {
+                          "name": {
+                              "$id": "#/properties/transformations/items/anyOf/0/properties/name",
+                              "type": "string",
+                              "title": "The name schema",
+                              "description": "An explanation about the purpose of this instance.",
+                              "default": ""
+                          },
+                          "source": {
+                              "$id": "#/properties/transformations/items/anyOf/0/properties/source",
+                              "type": "string",
+                              "title": "The source schema",
+                              "description": "An explanation about the purpose of this instance.",
+                              "default": ""
+                          },
+                          "operations": {
+                              "$id": "#/properties/transformations/items/anyOf/0/properties/operations",
+                              "type": "string",
+                              "title": "The operations schema",
+                              "description": "An explanation about the purpose of this instance.",
+                              "default": ""
+                          }
+                      },
+                      "additionalProperties": true
+                  }
+              ]
+          }
+      },
+      "download": {
+          "$id": "#/properties/download",
+          "type": "object",
+          "title": "The download schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "required": [],
+          "additionalProperties": true
+      },
+      "upload": {
+          "$id": "#/properties/upload",
+          "type": "object",
+          "title": "The upload schema",
+          "description": "An explanation about the purpose of this instance.",
+          "default": {},
+          "required": [
+              "deprecateMissing",
+              "importAsNew",
+              "allowDuplicateKeys",
+              "filterSource",
+              "appVersion",
+              "type",
+              "features",
+              "folder",
+              "files"
+          ],
+          "properties": {
+              "deprecateMissing": {
+                  "$id": "#/properties/upload/properties/deprecateMissing",
+                  "type": "boolean",
+                  "title": "The deprecateMissing schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": false
+              },
+              "importAsNew": {
+                  "$id": "#/properties/upload/properties/importAsNew",
+                  "type": "boolean",
+                  "title": "The importAsNew schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": false
+              },
+              "allowDuplicateKeys": {
+                  "$id": "#/properties/upload/properties/allowDuplicateKeys",
+                  "type": "boolean",
+                  "title": "The allowDuplicateKeys schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": false
+              },
+              "filterSource": {
+                  "$id": "#/properties/upload/properties/filterSource",
+                  "type": "boolean",
+                  "title": "The filterSource schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": false
+              },
+              "appVersion": {
+                  "$id": "#/properties/upload/properties/appVersion",
+                  "type": "number",
+                  "title": "The appVersion schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": 0
+              },
+              "type": {
+                  "$id": "#/properties/upload/properties/type",
+                  "type": "string",
+                  "title": "The type schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": ""
+              },
+              "features": {
+                  "$id": "#/properties/upload/properties/features",
+                  "type": "array",
+                  "title": "The features schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "uniqueItems": true,
+                  "additionalItems": true,
+                  "items": {
+                      "$id": "#/properties/upload/properties/features/items",
+                      "anyOf": [
+                          {
+                              "$id": "#/properties/upload/properties/features/items/anyOf/0",
+                              "type": "string",
+                              "title": "The first anyOf schema",
+                              "description": "An explanation about the purpose of this instance.",
+                              "default": ""
+                          }
+                      ]
+                  }
+              },
+              "folder": {
+                  "$id": "#/properties/upload/properties/folder",
+                  "type": "string",
+                  "title": "The folder schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": ""
+              },
+              "files": {
+                  "$id": "#/properties/upload/properties/files",
+                  "type": "array",
+                  "title": "The files schema",
+                  "description": "An explanation about the purpose of this instance.",
+                  "default": [],
+                  "uniqueItems": true,
+                  "additionalItems": true,
+                  "items": {
+                      "$id": "#/properties/upload/properties/files/items",
+                      "anyOf": [
+                          {
+                              "$id": "#/properties/upload/properties/files/items/anyOf/0",
+                              "type": "object",
+                              "title": "The first anyOf schema",
+                              "description": "An explanation about the purpose of this instance.",
+                              "default": {},
+                              "required": [
+                                  "group",
+                                  "pattern",
+                                  "excludes",
+                                  "type",
+                                  "features",
+                                  "conditions",
+                                  "lang",
+                                  "buildType",
+                                  "productFlavors",
+                                  "module",
+                                  "library",
+                                  "path",
+                                  "file"
+                              ],
+                              "properties": {
+                                  "group": {
+                                      "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/group",
+                                      "type": "string",
+                                      "title": "The group schema",
+                                      "description": "An explanation about the purpose of this instance.",
+                                      "default": ""
+                                  },
+                                  "pattern": {
+                                      "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/pattern",
+                                      "type": "string",
+                                      "title": "The pattern schema",
+                                      "description": "An explanation about the purpose of this instance.",
+                                      "default": ""
+                                  },
+                                  "excludes": {
+                                      "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/excludes",
+                                      "type": "array",
+                                      "title": "The excludes schema",
+                                      "description": "An explanation about the purpose of this instance.",
+                                      "default": [],
+                                      "uniqueItems": true,
+                                      "additionalItems": true,
+                                      "items": {
+                                          "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/excludes/items",
+                                          "anyOf": [
+                                              {
+                                                  "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/excludes/items/anyOf/0",
+                                                  "type": "string",
+                                                  "title": "The first anyOf schema",
+                                                  "description": "An explanation about the purpose of this instance.",
+                                                  "default": ""
+                                              }
+                                          ]
+                                      }
+                                  },
+                                  "type": {
+                                      "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/type",
+                                      "type": "string",
+                                      "title": "The type schema",
+                                      "description": "An explanation about the purpose of this instance.",
+                                      "default": ""
+                                  },
+                                  "features": {
+                                      "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/features",
+                                      "type": "array",
+                                      "title": "The features schema",
+                                      "description": "An explanation about the purpose of this instance.",
+                                      "default": [],
+                                      "uniqueItems": true,
+                                      "additionalItems": true,
+                                      "items": {
+                                          "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/features/items",
+                                          "anyOf": [
+                                              {
+                                                  "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/features/items/anyOf/0",
+                                                  "type": "string",
+                                                  "title": "The first anyOf schema",
+                                                  "description": "An explanation about the purpose of this instance.",
+                                                  "default": ""
+                                              }
+                                          ]
+                                      }
+                                  },
+                                  "conditions": {
+                                      "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/conditions",
+                                      "type": "array",
+                                      "title": "The conditions schema",
+                                      "description": "An explanation about the purpose of this instance.",
+                                      "default": [],
+                                      "uniqueItems": true,
+                                      "additionalItems": true,
+                                      "items": {
+                                          "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/conditions/items",
+                                          "anyOf": [
+                                              {
+                                                  "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/conditions/items/anyOf/0",
+                                                  "type": "string",
+                                                  "title": "The first anyOf schema",
+                                                  "description": "An explanation about the purpose of this instance.",
+                                                  "default": ""
+                                              }
+                                          ]
+                                      }
+                                  },
+                                  "lang": {
+                                      "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/lang",
+                                      "type": "string",
+                                      "title": "The lang schema",
+                                      "description": "An explanation about the purpose of this instance.",
+                                      "default": ""
+                                  },
+                                  "buildType": {
+                                      "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/buildType",
+                                      "type": "string",
+                                      "title": "The buildType schema",
+                                      "description": "An explanation about the purpose of this instance.",
+                                      "default": ""
+                                  },
+                                  "productFlavors": {
+                                      "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/productFlavors",
+                                      "type": "string",
+                                      "title": "The productFlavors schema",
+                                      "description": "An explanation about the purpose of this instance.",
+                                      "default": ""
+                                  },
+                                  "module": {
+                                      "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/module",
+                                      "type": "string",
+                                      "title": "The module schema",
+                                      "description": "An explanation about the purpose of this instance.",
+                                      "default": ""
+                                  },
+                                  "library": {
+                                      "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/library",
+                                      "type": "string",
+                                      "title": "The library schema",
+                                      "description": "An explanation about the purpose of this instance.",
+                                      "default": ""
+                                  },
+                                  "path": {
+                                      "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/path",
+                                      "type": "string",
+                                      "title": "The path schema",
+                                      "description": "An explanation about the purpose of this instance.",
+                                      "default": ""
+                                  },
+                                  "file": {
+                                      "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/file",
+                                      "type": "string",
+                                      "title": "The file schema",
+                                      "description": "An explanation about the purpose of this instance.",
+                                      "default": ""
+                                  }
+                              },
+                              "additionalProperties": true
+                          }
+                      ]
+                  }
+              }
+          },
+          "additionalProperties": true
+      }
+  },
+  "additionalProperties": true
+}
