@@ -376,15 +376,14 @@
         },
         "operations": {
           "title": "Operations",
-          "description": "Array or string containing valid operations using a sytax 'operationName: <args>', wher operation name is one of the following: [trimStart, trimEnd, substringAfter, substringAfterLast, substringBefore, substringBeforeLast, append, prepend, replace, remove, removePrefix, removeSuffix, capitalize, capitalizeWords, lowerCase, upperCase, print, set, detectLang, formatLang, androidBuildType, androidProductFlavors]",
+          "description": "Array or string containing valid operations using a operation:argument syntax, wher operation name is one of the following: [trimStart, trimEnd, substringAfter, substringAfterLast, substringBefore, substringBeforeLast, append, prepend, replace, remove, removePrefix, removeSuffix, capitalize, capitalizeWords, lowerCase, upperCase, print, set, detectLang, formatLang, androidBuildType, androidProductFlavors]",
           "type": [
             "array",
             "string"
           ],
           "anyOf": [
             {
-              "default": [],
-              "description": "Array of operations",
+              "default": [],              
               "items": {
                 "type": "string"
               }
@@ -401,6 +400,7 @@
       "properties": {
         "group": {
           "type": "string",
+          "title": "Group",
           "description": "Allows to assign files to groups and run their rules separately."
         },
         "conditions": {
@@ -408,7 +408,8 @@
             "string",
             "array"
           ],
-          "description": "Allows for more complex filtering of rules",
+          "title": "Conditions",
+          "description": "With conditions, you can introduce complex logic for processing files when they are downloaded. See documentation for options",
           "default": [],
           "anyOf": [
             {

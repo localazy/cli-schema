@@ -1,22 +1,15 @@
 {
   "$schema": "../localazy.json",
   "writeKey": "test",
-  "readKey": "test2",  
-  "transformations": [],
+  "readKey": "test",
   "download": {
-    "folder": ".",
-    "includeSourceLang": true,
-    "excludedLangs": [
-      "cs"
-    ],
-    "files": [
-      {
-        "group": "test",
-        "conditions": [
-          "sadfasdf",
-          10
-        ]
-      }
-    ]   
-  }
+    "files": "i18n/*.json"
+  },
+  "transformations": [
+    {
+      "name": "transformation_name",
+      "operations": [],
+      "source": "${path}"
+    }
+  ]
 }
