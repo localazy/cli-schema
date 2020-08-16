@@ -341,7 +341,7 @@
         "lang": {
           "type": "string",
           "title": "Langaguage",
-          "description": "The language of the file being uploaded (format: ll-Scrp-RR). Special default value inherited from the project’s base language."          
+          "description": "The language of the file being uploaded (format: ll-Scrp-RR). Special default value inherited from the project’s base language."
         },
         "buildType": {
           "type": "string",
