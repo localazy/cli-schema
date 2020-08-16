@@ -17,8 +17,29 @@
     "allowDuplicateKeys": false,
     "appVersion": 0,
     "importAsNew": false,
-    "filterSource": false,  
-    "type": "json",
-    "features": ["multilingual"]
+    "filterSource": false,
+    "type": "android",
+    "features": [
+      "multilingual"
+    ],
+    "files": {
+      "group": "all-langs",
+      "pattern": "/path/to/*_en.json",
+      "excludes": [
+        "**/private_*"
+      ],
+      "type": "json",
+      "features": [
+        "multilingual"
+      ],
+      "conditions": [],
+      "lang": "${lang}",
+      "buildType": "debug",
+      "productFlavors": "0:gp 1:free",
+      "module": "...",
+      "library": "...",
+      "path": "...",
+      "file": "..."
+    }
   }
 }

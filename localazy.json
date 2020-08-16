@@ -143,41 +143,12 @@
           "default": 0
         },
         "type": {
-          "$id": "#/properties/upload/properties/type",
-          "type": "string",
-          "title": "File type",
-          "description": "The type of files you are about to upload. You can also define the type separately for each file. For more info about supported file formats check out the documentation.",
-          "enum": [
-            "android",
-            "ios-strings",
-            "ios-stringsdict",
-            "ios-plist",
-            "arb",
-            "json",
-            "xliff"
-          ]
+          "$ref": "#/definitions/fileTypes"
         },
         "features": {
           "$id": "#/properties/upload/properties/features",
-          "title": "Enabled features",
-          "description": "The list of features (eg. how to parse plurals) to enable for the given type. See the list of supported file formats in documentation for more information.",
-          "default": [],
-          "uniqueItems": true,
-          "type": [
-            "string",
-            "array"
-          ],
-          "anyOf": [
-            {
-              "items": {
-                "type": "string"
-              }
-            },
-            {
-              "type": "string"
-            }
-          ]
-        },        
+          "$ref": "#/definitions/features"
+        },
         "folder": {
           "$id": "#/properties/upload/properties/folder",
           "type": "string",
@@ -187,175 +158,83 @@
         },
         "files": {
           "$id": "#/properties/upload/properties/files",
-          "type": "array",
-          "title": "The files schema",
-          "description": "An explanation about the purpose of this instance.",
+          "title": "Upload files",
+          "description": "The files contains a list of rules for collecting files for upload. You can include files by their exact path or by using standard path wildcards ? (single character), * (anything except path separator), ** (anything including path separators). You can control files that you want to upload with exclusion rules and conditions.",
           "default": [],
-          "uniqueItems": true,
-          "items": {
-            "$id": "#/properties/upload/properties/files/items",
-            "anyOf": [
-              {
-                "$id": "#/properties/upload/properties/files/items/anyOf/0",
-                "type": "object",
-                "title": "The first anyOf schema",
-                "description": "An explanation about the purpose of this instance.",
-                "default": {},
-                "required": [
-                  "group",
-                  "pattern",
-                  "excludes",
-                  "type",
-                  "features",
-                  "conditions",
-                  "lang",
-                  "buildType",
-                  "productFlavors",
-                  "module",
-                  "library",
-                  "path",
-                  "file"
-                ],
-                "properties": {
-                  "group": {
-                    "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/group",
-                    "type": "string",
-                    "title": "The group schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": ""
-                  },
-                  "pattern": {
-                    "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/pattern",
-                    "type": "string",
-                    "title": "The pattern schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": ""
-                  },
-                  "excludes": {
-                    "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/excludes",
-                    "type": "array",
-                    "title": "The excludes schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": [],
-                    "uniqueItems": true,
-                    "items": {
-                      "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/excludes/items",
-                      "anyOf": [
-                        {
-                          "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/excludes/items/anyOf/0",
-                          "type": "string",
-                          "title": "The first anyOf schema",
-                          "description": "An explanation about the purpose of this instance.",
-                          "default": ""
-                        }
-                      ]
-                    }
-                  },
-                  "type": {
-                    "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/type",
-                    "type": "string",
-                    "title": "The type schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": ""
-                  },
-                  "features": {
-                    "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/features",
-                    "type": "array",
-                    "title": "The features schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": [],
-                    "uniqueItems": true,
-                    "items": {
-                      "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/features/items",
-                      "anyOf": [
-                        {
-                          "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/features/items/anyOf/0",
-                          "type": "string",
-                          "title": "The first anyOf schema",
-                          "description": "An explanation about the purpose of this instance.",
-                          "default": ""
-                        }
-                      ]
-                    }
-                  },
-                  "conditions": {
-                    "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/conditions",
-                    "type": "array",
-                    "title": "The conditions schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": [],
-                    "uniqueItems": true,
-                    "items": {
-                      "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/conditions/items",
-                      "anyOf": [
-                        {
-                          "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/conditions/items/anyOf/0",
-                          "type": "string",
-                          "title": "The first anyOf schema",
-                          "description": "An explanation about the purpose of this instance.",
-                          "default": ""
-                        }
-                      ]
-                    }
-                  },
-                  "lang": {
-                    "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/lang",
-                    "type": "string",
-                    "title": "The lang schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": ""
-                  },
-                  "buildType": {
-                    "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/buildType",
-                    "type": "string",
-                    "title": "The buildType schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": ""
-                  },
-                  "productFlavors": {
-                    "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/productFlavors",
-                    "type": "string",
-                    "title": "The productFlavors schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": ""
-                  },
-                  "module": {
-                    "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/module",
-                    "type": "string",
-                    "title": "The module schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": ""
-                  },
-                  "library": {
-                    "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/library",
-                    "type": "string",
-                    "title": "The library schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": ""
-                  },
-                  "path": {
-                    "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/path",
-                    "type": "string",
-                    "title": "The path schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": ""
-                  },
-                  "file": {
-                    "$id": "#/properties/upload/properties/files/items/anyOf/0/properties/file",
-                    "type": "string",
-                    "title": "The file schema",
-                    "description": "An explanation about the purpose of this instance.",
-                    "default": ""
-                  }
-                }
+          "type": [
+            "string",
+            "array",
+            "object"
+          ],
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "$ref": "#/definitions/uploadFiles"
+            },
+            {
+              "items": {
+                "$ref": "#/definitions/uploadFiles"
               }
-            ]
-          }
+            }
+          ]
         }
       }
     }
   },
   "definitions": {
+    "fileTypes": {
+      "type": "string",
+      "title": "File type",
+      "description": "Type of files you are about to upload. You can also define the type separately for each file. For more info about supported file formats check out the documentation.",
+      "enum": [
+        "android",
+        "ios-strings",
+        "ios-stringsdict",
+        "ios-plist",
+        "arb",
+        "json",
+        "xliff"
+      ]
+    },
+    "conditions": {
+      "type": [
+        "string",
+        "array"
+      ],
+      "title": "Conditions",
+      "description": "With conditions, you can introduce complex logic for processing files when they are downloaded. See documentation for options",
+      "default": [],
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "items": true
+        }
+      ]
+    },
+    "features": {
+      "title": "Enabled features",
+      "description": "The list of features (eg. how to parse plurals) to enable for the given type. See the list of supported file formats in documentation for more information.",
+      "default": [],
+      "uniqueItems": true,
+      "type": [
+        "string",
+        "array"
+      ],
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          }
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
     "transformationsItem": {
       "default": {},
       "type": "object",
@@ -402,21 +281,7 @@
           "description": "Allows to assign files to groups and run their rules separately."
         },
         "conditions": {
-          "type": [
-            "string",
-            "array"
-          ],
-          "title": "Conditions",
-          "description": "With conditions, you can introduce complex logic for processing files when they are downloaded. See documentation for options",
-          "default": [],
-          "anyOf": [
-            {
-              "type": "string"
-            },
-            {
-              "items": true
-            }
-          ]
+          "$ref": "#/definitions/conditions"
         },
         "stop": {
           "type": "boolean",
@@ -434,7 +299,70 @@
     "uploadFiles": {
       "type": "object",
       "properties": {
-        
+        "group": {
+          "type": "string",
+          "title": "Group",
+          "description": "Allows to assign files to groups and run their rules separately.",
+          "default": ""
+        },
+        "pattern": {
+          "type": "string",
+          "title": "Collect pattern",
+          "description": "The pattern to use for collecting files. Standard path wildcards ? (single character), * (anything except path separator), ** (anything including path separators) are supported.",
+          "default": ""
+        },
+        "excludes": {
+          "type": "array",
+          "title": "Exclude list",
+          "description": "The list of patterns used for excluding files. Standard path wildcards ? (single character), * (anything except path separator), ** (anything including path separators) are supported.",
+          "default": []
+        },
+        "type": {
+          "$ref": "#/definitions/fileTypes"
+        },
+        "features": {
+          "$ref": "#/definitions/features"
+        },
+        "conditions": {
+          "$ref": "#/definitions/conditions"
+        },
+        "file": {
+          "type": "string",
+          "title": "File",
+          "description": "The file name to be used for upload.",
+          "default": "${file}"
+        },
+        "path": {
+          "type": "string",
+          "title": "Path",
+          "description": "The path to be used for upload.",
+          "default": "${path}"
+        },
+        "lang": {
+          "type": "string",
+          "title": "Langaguage",
+          "description": "The language of the file being uploaded (format: ll-Scrp-RR). Special default value inherited from the project’s base language."          
+        },
+        "buildType": {
+          "type": "string",
+          "title": "Build type",
+          "description": "The custom build type for the file. See Modules, libraries, flavors for more details."
+        },
+        "productFlavors": {
+          "type": "string",
+          "title": "Product flavours",
+          "description": "The custom product flavors for the file. See Modules, libraries, flavors for more details."
+        },
+        "module": {
+          "type": "string",
+          "title": "Modules",
+          "description": "The module the file belongs to. See Modules, libraries, flavors for more details."
+        },
+        "library": {
+          "type": "string",
+          "title": "Library",
+          "description": "The library the file belongs to. See Modules, libraries, flavors for more details."
+        }
       }
     }
   }
