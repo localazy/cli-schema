@@ -103,88 +103,86 @@
     "upload": {
       "$id": "#/properties/upload",
       "type": "object",
-      "title": "The upload schema",
-      "description": "An explanation about the purpose of this instance.",
+      "title": "Upload section",
+      "description": "The upload section defines how to collect files that you want to upload to the Localazy platform for localization and what metadata to include. It also defines how to process uploaded data.",
       "default": {},
-      "required": [
-        "deprecateMissing",
-        "importAsNew",
-        "allowDuplicateKeys",
-        "filterSource",
-        "appVersion",
-        "type",
-        "features",
-        "folder",
-        "files"
-      ],
       "properties": {
         "deprecateMissing": {
           "$id": "#/properties/upload/properties/deprecateMissing",
           "type": "boolean",
-          "title": "The deprecateMissing schema",
-          "description": "An explanation about the purpose of this instance.",
+          "title": "Deprecate missing",
+          "description": "Tells the server to deprecate any phrase missing in this upload batch. Deprecated phrases are still available but are not visible to translators.",
           "default": false
         },
         "importAsNew": {
           "$id": "#/properties/upload/properties/importAsNew",
           "type": "boolean",
-          "title": "The importAsNew schema",
-          "description": "An explanation about the purpose of this instance.",
+          "title": "Import as new",
+          "description": "Tells the server to import new phrases as unverified. Unverified phrases need to go through the review process. This option allows you to check translations using our unique review process if you are not sure of their quality. This option doesn’t apply to the source language.",
           "default": false
         },
         "allowDuplicateKeys": {
           "$id": "#/properties/upload/properties/allowDuplicateKeys",
           "type": "boolean",
-          "title": "The allowDuplicateKeys schema",
-          "description": "An explanation about the purpose of this instance.",
+          "title": "Allow duplicate keys",
+          "description": "By default, you can have phrases with the same key in different files. For specific situations like using libraries and string overriding, it’s necessary to disable this option. You can find more on this topic in 'Modules, libraries, product flavors' article.",
           "default": false
         },
         "filterSource": {
           "$id": "#/properties/upload/properties/filterSource",
           "type": "boolean",
-          "title": "The filterSource schema",
-          "description": "An explanation about the purpose of this instance.",
+          "title": "Filter source",
+          "description": "When set to true, strings that are the same as in the source langauge are not imported. This is important for platforms like iOS where localizable files contain the source phrase where the translation is not available. This option doesn’t apply to the source language.",
           "default": false
         },
         "appVersion": {
           "$id": "#/properties/upload/properties/appVersion",
           "type": "number",
-          "title": "The appVersion schema",
-          "description": "An explanation about the purpose of this instance.",
+          "title": "App version",
+          "description": "Tells the server the version of the app in which the phrases where deprecated. It only makes sense with deprecateMissing switched to true. It allows for automatic versioning of deprecated phrases. This option can be provided on the command-line with -v option.",
           "default": 0
         },
         "type": {
           "$id": "#/properties/upload/properties/type",
           "type": "string",
-          "title": "The type schema",
-          "description": "An explanation about the purpose of this instance.",
-          "default": ""
+          "title": "File type",
+          "description": "The type of files you are about to upload. You can also define the type separately for each file. For more info about supported file formats check out the documentation.",
+          "enum": [
+            "android",
+            "ios-strings",
+            "ios-stringsdict",
+            "ios-plist",
+            "arb",
+            "json",
+            "xliff"
+          ]
         },
         "features": {
           "$id": "#/properties/upload/properties/features",
-          "type": "array",
-          "title": "The features schema",
-          "description": "An explanation about the purpose of this instance.",
+          "title": "Enabled features",
+          "description": "The list of features (eg. how to parse plurals) to enable for the given type. See the list of supported file formats in documentation for more information.",
           "default": [],
           "uniqueItems": true,
-          "items": {
-            "$id": "#/properties/upload/properties/features/items",
-            "anyOf": [
-              {
-                "$id": "#/properties/upload/properties/features/items/anyOf/0",
-                "type": "string",
-                "title": "The first anyOf schema",
-                "description": "An explanation about the purpose of this instance.",
-                "default": ""
+          "type": [
+            "string",
+            "array"
+          ],
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
               }
-            ]
-          }
-        },
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },        
         "folder": {
           "$id": "#/properties/upload/properties/folder",
           "type": "string",
-          "title": "The folder schema",
-          "description": "An explanation about the purpose of this instance.",
+          "title": "Base folder",
+          "description": "The base folder all operations are relative to. It can be relative or absolute path.",
           "default": ""
         },
         "files": {
@@ -383,7 +381,7 @@
           ],
           "anyOf": [
             {
-              "default": [],              
+              "default": [],
               "items": {
                 "type": "string"
               }
@@ -431,6 +429,12 @@
           "title": "Output pattern",
           "description": "The pattern for generating output path and file. Use variables to build the pattern."
         }
+      }
+    },
+    "uploadFiles": {
+      "type": "object",
+      "properties": {
+        
       }
     }
   }

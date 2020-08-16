@@ -11,5 +11,14 @@
       "operations": [],
       "source": "${path}"
     }
-  ]
+  ],
+  "upload": {
+    "deprecateMissing": false,
+    "allowDuplicateKeys": false,
+    "appVersion": 0,
+    "importAsNew": false,
+    "filterSource": false,  
+    "type": "json",
+    "features": ["multilingual"]
+  }
 }
