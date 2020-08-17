@@ -24,7 +24,7 @@
     "transformations": {
       "$id": "#/properties/transformations",
       "title": "Transformations section",
-      "description": "The Transformations property allows defining rule for string transformations. Using transformations, you can eg. obtain file metadata from its path or build the specific path where to write translated files.",
+      "description": "The Transformations property allows defining rule for string transformations. Using transformations, you can eg. obtain file metadata from its path or build the specific path where to write translated files. https://localazy.com/docs/cli/transformations",
       "default": [],
       "type": [
         "array",
@@ -45,7 +45,7 @@
       "$id": "#/properties/download",
       "type": "object",
       "title": "Download section",
-      "description": "The download property describes how to process translated files and where to write them.",
+      "description": "The download property describes how to process translated files and where to write them. https://localazy.com/docs/cli/download-reference",
       "default": {},
       "properties": {
         "includeSourceLang": {
@@ -104,7 +104,7 @@
       "$id": "#/properties/upload",
       "type": "object",
       "title": "Upload section",
-      "description": "The upload section defines how to collect files that you want to upload to the Localazy platform for localization and what metadata to include. It also defines how to process uploaded data.",
+      "description": "The upload section defines how to collect files that you want to upload to the Localazy platform for localization and what metadata to include. It also defines how to process uploaded data. https://localazy.com/docs/cli/upload-reference",
       "default": {},
       "properties": {
         "deprecateMissing": {
@@ -204,7 +204,7 @@
         "array"
       ],
       "title": "Conditions",
-      "description": "With conditions, you can introduce complex logic for processing files when they are downloaded. See documentation for options",
+      "description": "With conditions, you can introduce complex logic for processing files when they are downloaded. See documentation for options. https://localazy.com/docs/cli/conditions",
       "default": [],
       "anyOf": [
         {
@@ -213,11 +213,11 @@
         {
           "items": true
         }
-      ]
+      ]      
     },
     "features": {
       "title": "Enabled features",
-      "description": "The list of features (eg. how to parse plurals) to enable for the given type. See the list of supported file formats in documentation for more information.",
+      "description": "The list of features (eg. how to parse plurals) to enable for the given type. See the list of supported file formats in documentation for more information. https://localazy.com/docs/cli/upload-reference#supported-file-formats",
       "default": [],
       "uniqueItems": true,
       "type": [
@@ -242,7 +242,7 @@
         "name": {
           "type": "string",
           "title": "Transformation name",
-          "description": "Transformation name. Will be used as variable name in ${name} syntax.",
+          "description": "Transformation name. Will be used as variable name in ${name} syntax. https://localazy.com/docs/cli/variables",
           "default": "transformation_name"
         },
         "source": {
@@ -253,7 +253,7 @@
         },
         "operations": {
           "title": "Operations",
-          "description": "Array or string containing valid operations using a operation:argument syntax, wher operation name is one of the following: [trimStart, trimEnd, substringAfter, substringAfterLast, substringBefore, substringBeforeLast, append, prepend, replace, remove, removePrefix, removeSuffix, capitalize, capitalizeWords, lowerCase, upperCase, print, set, detectLang, formatLang, androidBuildType, androidProductFlavors]",
+          "description": "Array or string containing valid operations using a operation:argument syntax, wher operation name is one of the following: [trimStart, trimEnd, substringAfter, substringAfterLast, substringBefore, substringBeforeLast, append, prepend, replace, remove, removePrefix, removeSuffix, capitalize, capitalizeWords, lowerCase, upperCase, print, set, detectLang, formatLang, androidBuildType, androidProductFlavors]. https://localazy.com/docs/cli/transformations#operations",
           "type": [
             "array",
             "string"
@@ -346,22 +346,22 @@
         "buildType": {
           "type": "string",
           "title": "Build type",
-          "description": "The custom build type for the file. See Modules, libraries, flavors for more details."
+          "description": "The custom build type for the file. See Modules, libraries, flavors for more details. https://localazy.com/docs/cli/modules-libraries-product-flavors#build-type"
         },
         "productFlavors": {
           "type": "string",
           "title": "Product flavours",
-          "description": "The custom product flavors for the file. See Modules, libraries, flavors for more details."
+          "description": "The custom product flavors for the file. See Modules, libraries, flavors for more details. https://localazy.com/docs/cli/modules-libraries-product-flavors#product-flavors"
         },
         "module": {
           "type": "string",
           "title": "Modules",
-          "description": "The module the file belongs to. See Modules, libraries, flavors for more details."
+          "description": "The module the file belongs to. See Modules, libraries, flavors for more details. https://localazy.com/docs/cli/modules-libraries-product-flavors#module"
         },
         "library": {
           "type": "string",
           "title": "Library",
-          "description": "The library the file belongs to. See Modules, libraries, flavors for more details."
+          "description": "The library the file belongs to. See Modules, libraries, flavors for more details. https://localazy.com/docs/cli/modules-libraries-product-flavors#library"
         }
       }
     }

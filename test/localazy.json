@@ -3,13 +3,13 @@
   "writeKey": "test",
   "readKey": "test",
   "download": {
-    "files": "i18n/*.json"
+    "files": "i18n/*.json"    
   },
   "transformations": [
     {
       "name": "transformation_name",
       "operations": [],
-      "source": "${path}"
+      "source": "${path}"      
     }
   ],
   "upload": {
