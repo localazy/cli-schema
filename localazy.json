@@ -175,7 +175,14 @@
             },
             {
               "items": {
-                "$ref": "#/definitions/uploadFiles"
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "$ref": "#/definitions/uploadFiles"
+                  }
+                ]
               }
             }
           ]
@@ -213,7 +220,7 @@
         {
           "items": true
         }
-      ]      
+      ]
     },
     "features": {
       "title": "Enabled features",
