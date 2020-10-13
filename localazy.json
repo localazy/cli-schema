@@ -202,7 +202,14 @@
         "ios-plist",
         "arb",
         "json",
-        "xliff"
+        "xliff",
+        "js",
+        "po",
+        "resx",
+        "yaml",
+        "json5",
+        "hjson",
+        "properties"
       ]
     },
     "conditions": {

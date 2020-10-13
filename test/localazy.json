@@ -18,7 +18,7 @@
     "appVersion": 0,
     "importAsNew": false,
     "filterSource": false,
-    "type": "android",
+    "type": "js",
     "features": [
       "multilingual"
     ],
@@ -28,7 +28,7 @@
       "excludes": [
         "**/private_*"
       ],
-      "type": "json",
+      "type": "js",
       "features": [
         "multilingual"
       ],
