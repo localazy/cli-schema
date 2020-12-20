@@ -1,45 +1,26 @@
 {
   "$schema": "../localazy.json",
-  "writeKey": "test",
-  "readKey": "test",
-  "download": {
-    "files": "i18n/*.json"    
-  },
-  "transformations": [
-    {
-      "name": "transformation_name",
-      "operations": [],
-      "source": "${path}"      
-    }
-  ],
+  "writeKey": "a8886127321448668746-5ecc0da070b24e14a40f662172a515b771dcf96c37853d925aa53ca54a1ade9d",
+  "readKey": "a8886127321448668746-87bc7937efd7ca617ed5f8ae7904b0ff0c0bc6d56c07b4f8498d6bddf6b90eb7",
+
   "upload": {
-    "deprecateMissing": false,
-    "allowDuplicateKeys": false,
-    "appVersion": 0,
-    "importAsNew": false,
-    "filterSource": false,
-    "type": "js",
-    "features": [
-      "multilingual"
-    ],
-    "files": {
-      "group": "all-langs",
-      "pattern": "/path/to/*_en.json",
-      "excludes": [
-        "**/private_*"
-      ],
-      "type": "js",
-      "features": [
-        "multilingual"
-      ],
-      "conditions": [],
-      "lang": "${lang}",
-      "buildType": "debug",
-      "productFlavors": "0:gp 1:free",
-      "module": "...",
-      "library": "...",
-      "path": "...",
-      "file": "..."
+    "type": "json",
+    "files": [
+    {
+      "pattern": "src/translations//en.json",
+      "lang": "inherited"
+    },
+    {
+      "group": "existing",
+      "pattern": "src/translations//*.json",
+      "excludes": ["src/translations/**/en.json"],
+      "lang": "${autodetectLang}"
     }
+  ]
+  },
+
+  "download": {
+    "files": "${path}/${lang}.json",
+    "metadataFileJs": "localazy-meta.js"
   }
 }

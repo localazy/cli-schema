@@ -97,6 +97,21 @@
               }
             }
           ]
+        },
+        "metadataFileJson": {
+          "type": "string",
+          "title": "JSON metadata file",
+          "description": "Path where JSON language metadata file should be downloaded. https://localazy.com/docs/cli/metadata-file"      
+        },
+        "metadataFileJs": {
+          "type": "string",
+          "title": "JavaScript metadata file",
+          "description": "Path where JavaScript language metadata file should be downloaded. https://localazy.com/docs/cli/metadata-file"      
+        },
+        "metadataFileTs": {
+          "type": "string",
+          "title": "TypeScript metadata file",
+          "description": "Path where TypeScript language metadata file should be downloaded. https://localazy.com/docs/cli/metadata-file"      
         }
       }
     },
@@ -205,6 +220,7 @@
         "xliff",
         "js",
         "po",
+        "pot",
         "resx",
         "yaml",
         "json5",
