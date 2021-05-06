@@ -1,2 +1,2 @@
 # cli-schema
-Localazy schema definition
+Localazy schema definitions
