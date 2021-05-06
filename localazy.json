@@ -203,6 +203,74 @@
           ]
         }
       }
+    },
+    "conversion": {
+      "$id": "#/properties/conversion",
+      "type": "object",
+      "title": "Conversion section",
+      "description": "The conversion property describes how to convert localizable files between different formats. https://localazy.com/docs/cli/format-conversions#full-configuration",
+      "default": {},
+      "properties": {
+
+        "folder": {
+          "type": "string",
+          "description": "The base folder all operations are relative to. It can be a relative or absolute path",
+          "default": "."
+        },
+        "excludedLangs": {
+          "description": "The list of languages to exclude from processing.",
+          "default": [],
+          "type": [
+            "string",
+            "array"
+          ],
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              }
+            },
+            {
+              "type": "string"
+            }
+          ]
+        },
+        "actions.group":{
+          "type": "string",
+          "description": "Allows to filter rules using groups. https://localazy.com/docs/cli/command-line-options#groups",
+          "default": "—"
+        },
+        "actions.stop":{
+          "type": "boolean",
+          "description": "If true, no more rules are processed for the given file. Only makes sense if more output rules are defined. By default, the first matching rule stops processing for the file.",
+          "default": "true"
+        },
+        "actions.conditions": {
+          "type": [
+            "string",
+            "array"
+          ],
+          "description": "Allows for more complex filtering of rules. https://localazy.com/docs/cli/conditions",
+          "default": [],
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": true
+            }
+          ]
+        },
+        "actions.output":{
+          "type": "string",
+          "description": "The pattern for generating output path and file. Use variables to build the pattern. https://localazy.com/docs/cli/variables",
+          "default": "-"
+        }
+
+      }
+
+
+
     }
   },
   "definitions": {
