@@ -101,17 +101,17 @@
         "metadataFileJson": {
           "type": "string",
           "title": "JSON metadata file",
-          "description": "Path where JSON language metadata file should be downloaded. https://localazy.com/docs/cli/metadata-file"      
+          "description": "Path where JSON language metadata file should be downloaded. https://localazy.com/docs/cli/metadata-file"
         },
         "metadataFileJs": {
           "type": "string",
           "title": "JavaScript metadata file",
-          "description": "Path where JavaScript language metadata file should be downloaded. https://localazy.com/docs/cli/metadata-file"      
+          "description": "Path where JavaScript language metadata file should be downloaded. https://localazy.com/docs/cli/metadata-file"
         },
         "metadataFileTs": {
           "type": "string",
           "title": "TypeScript metadata file",
-          "description": "Path where TypeScript language metadata file should be downloaded. https://localazy.com/docs/cli/metadata-file"      
+          "description": "Path where TypeScript language metadata file should be downloaded. https://localazy.com/docs/cli/metadata-file"
         }
       }
     },
@@ -211,7 +211,6 @@
       "description": "The conversion property describes how to convert localizable files between different formats. https://localazy.com/docs/cli/format-conversions#full-configuration",
       "default": {},
       "properties": {
-
         "folder": {
           "type": "string",
           "description": "The base folder all operations are relative to. It can be a relative or absolute path",
@@ -235,42 +234,70 @@
             }
           ]
         },
-        "actions.group":{
-          "type": "string",
-          "description": "Allows to filter rules using groups. https://localazy.com/docs/cli/command-line-options#groups",
-          "default": "—"
-        },
-        "actions.stop":{
-          "type": "boolean",
-          "description": "If true, no more rules are processed for the given file. Only makes sense if more output rules are defined. By default, the first matching rule stops processing for the file.",
-          "default": "true"
-        },
-        "actions.conditions": {
-          "type": [
-            "string",
-            "array"
-          ],
-          "description": "Allows for more complex filtering of rules. https://localazy.com/docs/cli/conditions",
-          "default": [],
-          "anyOf": [
-            {
-              "type": "string"
+        "actions": {
+
+          
+          "properties": {
+            "group": {
+              "type": "string",
+              "description": "Allows to filter rules using groups. https://localazy.com/docs/cli/command-line-options#groups",
+              "default": "—"
             },
-            {
-              "items": true
+            "stop": {
+              "type": "boolean",
+              "description": "If true, no more rules are processed for the given file. Only makes sense if more output rules are defined. By default, the first matching rule stops processing for the file.",
+              "default": "false"
+            },
+            "conditions": {
+              "type": [
+                "string",
+                "array"
+              ],
+              "description": "Allows for more complex filtering of rules. https://localazy.com/docs/cli/conditions",
+              "default": [],
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "items": true
+                }
+              ]
+            },
+            "output": {
+              "type": "string",
+              "description": "The pattern for generating output path and file. Use variables to build the pattern. https://localazy.com/docs/cli/variables",
+              "default": "-"
+            },
+            "type": {
+              "type": "string",
+              "description": "The type of the conversion to be performed with files. See below for available types and their parameters."
+            },
+            "keySeparator": {
+              "type": "string",
+              "description": "The separator used for building structured keys for includeKeys and excludeKeys. For more details: https://localazy.com/docs/cli/excluding-string-keys ",
+              "default": "."
+            },
+            "includeKeys": {
+              "type": [
+                "string",
+                "array"
+              ],
+              "description": "Allows for more complex filtering of rules. https://localazy.com/docs/cli/conditions",
+              "default": [],
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "items": true
+                }
+              ]
             }
-          ]
-        },
-        "actions.output":{
-          "type": "string",
-          "description": "The pattern for generating output path and file. Use variables to build the pattern. https://localazy.com/docs/cli/variables",
-          "default": "-"
+          },
+          "required": ["type"]
         }
-
       }
-
-
-
     }
   },
   "definitions": {
