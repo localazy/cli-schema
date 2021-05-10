@@ -235,8 +235,6 @@
           ]
         },
         "actions": {
-
-          
           "properties": {
             "group": {
               "type": "string",
@@ -264,6 +262,11 @@
                 }
               ]
             },
+            "changeExtension": {
+              "type": "string",
+              "description": "If defined, change the extension of the output file. Applied to the final output after resolving all variables.",
+              "default": "-"
+            },
             "output": {
               "type": "string",
               "description": "The pattern for generating output path and file. Use variables to build the pattern. https://localazy.com/docs/cli/variables",
@@ -283,7 +286,7 @@
                 "string",
                 "array"
               ],
-              "description": "Allows for more complex filtering of rules. https://localazy.com/docs/cli/conditions",
+              "description": "A list of rules for determining keys to include. For more details: https://localazy.com/docs/cli/excluding-string-keys",
               "default": [],
               "anyOf": [
                 {
@@ -293,9 +296,77 @@
                   "items": true
                 }
               ]
+            },
+            "excludeKeys": {
+              "type": [
+                "string",
+                "array"
+              ],
+              "description": "A list of rules for determining keys to exclude. For more details: https://localazy.com/docs/cli/excluding-string-keys",
+              "default": [],
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "items": true
+                }
+              ]
+            },
+            "langAliases": {
+              "type": "string",
+              "description": "Maps languages to different ones",
+              "default": "-",
+              "properties": {}
+            },
+            "langExpansions": {
+              "type": "string",
+              "description": "Adds additional languages to output; the same file will be saved several time.",
+              "default": "-",
+              "properties": {}
+            },
+            "arrayType": {
+              "type": "string",
+              "description": "If the type supports more formats for string arrays, you can select the desired one with this parameter.",
+              "default": "-"
+            },
+            "pluralType": {
+              "type": "string",
+              "description": "If the type supports more formats for plurals, you can select the desired one with this parameter.",
+              "default": "-"
+            },
+            "forceArrayType": {
+              "type": "boolean",
+              "description": "If the conversion is made between types that support the same format for string arrays, the format is retained unless you explicitly set this parameter to true to force change.",
+              "default": "false"
+            },
+            "forcePluralType": {
+              "type": "boolean",
+              "description": "If the conversion is made between types that support the same format for plurals, the format is retained unless you explicitly set this parameter to true to force change.",
+              "default": "false"
+            },
+            "filterStrings": {
+              "type": "boolean",
+              "description": "If the conversion type allows filtering, you can enable this option to filter strings out of the output file.",
+              "default": "null"
+            },
+            "filterArrays": {
+              "type": "boolean",
+              "description": "If the conversion type allows filtering, you can enable this option to filter string arrays out of the output file.",
+              "default": "null"
+            },
+            "filterPlurals": {
+              "type": "boolean",
+              "description": "If the conversion type allows filtering, you can enable this option to filter plurals out of the output file.",
+              "default": "null"
+            },
+            "params": {
+              "properties": {}
             }
           },
-          "required": ["type"]
+          "required": [
+            "type"
+          ]
         }
       }
     }

@@ -22,5 +22,22 @@
   "download": {
     "files": "${path}/${lang}.json",
     "metadataFileJs": "localazy-meta.js"
-  }
+  },
+
+    "conversion": {
+      "folder": ".",
+      "excludedLangs": ["cs", "de"],
+      "actions": {
+        "group": "conversion",
+        "stop": false,
+        "conditions": [ ],
+        "changeExtension": "xml",
+        "output": "path/${lang}/${file}",
+        "type": "json",
+        "keySeparator": ".",
+        "includeKeys": ["REGEX:key_.*"],
+        "excludeKeys": ["REGEX:private_.*"]
+      }
+    }
+  
 }
