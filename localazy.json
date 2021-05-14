@@ -75,6 +75,14 @@
             }
           ]
         },
+        "langAliases": {
+          "type": "object",
+          "description": "Maps languages to different ones"
+        },
+        "langExpansions": {
+          "type": "object",
+          "description": "Adds additional languages to output; the same file will be saved several time."
+        },
         "files": {
           "title": "File download",
           "description": "The rules to apply to all translated files. It can be either array object or a pattern string.",
@@ -269,8 +277,7 @@
             },
             "output": {
               "type": "string",
-              "description": "The pattern for generating output path and file. Use variables to build the pattern. https://localazy.com/docs/cli/variables",
-              "default": "-"
+              "description": "The pattern for generating output path and file. Use variables to build the pattern. https://localazy.com/docs/cli/variables"
             },
             "type": {
               "type": "string",
@@ -314,26 +321,20 @@
               ]
             },
             "langAliases": {
-              "type": "string",
-              "description": "Maps languages to different ones",
-              "default": "-",
-              "properties": {}
+              "type": "object",
+              "description": "Maps languages to different ones"
             },
             "langExpansions": {
-              "type": "string",
-              "description": "Adds additional languages to output; the same file will be saved several time.",
-              "default": "-",
-              "properties": {}
+              "type": "object",
+              "description": "Adds additional languages to output; the same file will be saved several time."
             },
             "arrayType": {
               "type": "string",
-              "description": "If the type supports more formats for string arrays, you can select the desired one with this parameter.",
-              "default": "-"
+              "description": "If the type supports more formats for string arrays, you can select the desired one with this parameter."
             },
             "pluralType": {
               "type": "string",
-              "description": "If the type supports more formats for plurals, you can select the desired one with this parameter.",
-              "default": "-"
+              "description": "If the type supports more formats for plurals, you can select the desired one with this parameter."
             },
             "forceArrayType": {
               "type": "boolean",
@@ -361,7 +362,43 @@
               "default": "null"
             },
             "params": {
-              "properties": {}
+              "properties": {
+                "filter_untranslated": {
+                  "type": "boolean",
+                  "description": "Filtering of untranslated phrases",
+                  "default": false
+                },
+                "flatten_keys": {
+                  "type": "string",
+                  "description": " Flattening structured keys",
+                  "default": "no"
+                },
+                "arb_locale": {
+                  "type": "string",
+                  "description": " Generating @@locale key",
+                  "default": "full"
+                },
+                "force_escaping": {
+                  "type": "boolean",
+                  "description": " Forcing aggressive escaping",
+                  "default": false
+                },
+                "encoding": {
+                  "type": "string",
+                  "description": " Output file encoding",
+                  "default": "utf8"
+                },
+                "lang_format": {
+                  "type": "string",
+                  "description": "Format of the locale used for multilingual keys",
+                  "default": "ll-rr-scrp"
+                },
+                "clear_params": {
+                  "type": "boolean",
+                  "description": "Clearing additional phrases metadata.",
+                  "default": false
+                }
+              }
             }
           },
           "required": [
