@@ -6,7 +6,8 @@
   "title": "Localazy CLI schema",
   "description": "Schema definition for Localazy CLI configuration file",
   "required": [],
-  "properties": {
+  "additionalProperties": false,
+  "properties": {    
     "writeKey": {
       "$id": "#/properties/writeKey",
       "type": "string",
