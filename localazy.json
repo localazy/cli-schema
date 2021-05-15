@@ -7,7 +7,11 @@
   "description": "Schema definition for Localazy CLI configuration file",
   "required": [],
   "additionalProperties": false,
-  "properties": {    
+  "properties": {
+    "$schema":{
+      "type":"string",
+      "default": "https://raw.githubusercontent.com/localazy/cli-schema/master/localazy.json"
+    },
     "writeKey": {
       "$id": "#/properties/writeKey",
       "type": "string",
@@ -244,166 +248,22 @@
           ]
         },
         "actions": {
-          "properties": {
-            "group": {
-              "type": "string",
-              "description": "Allows to filter rules using groups. https://localazy.com/docs/cli/command-line-options#groups",
-              "default": "—"
-            },
-            "stop": {
-              "type": "boolean",
-              "description": "If true, no more rules are processed for the given file. Only makes sense if more output rules are defined. By default, the first matching rule stops processing for the file.",
-              "default": "false"
-            },
-            "conditions": {
-              "type": [
-                "string",
-                "array"
-              ],
-              "description": "Allows for more complex filtering of rules. https://localazy.com/docs/cli/conditions",
-              "default": [],
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "items": true
-                }
-              ]
-            },
-            "changeExtension": {
-              "type": "string",
-              "description": "If defined, change the extension of the output file. Applied to the final output after resolving all variables.",
-              "default": "-"
-            },
-            "output": {
-              "type": "string",
-              "description": "The pattern for generating output path and file. Use variables to build the pattern. https://localazy.com/docs/cli/variables"
-            },
-            "type": {
-              "type": "string",
-              "description": "The type of the conversion to be performed with files. See below for available types and their parameters."
-            },
-            "keySeparator": {
-              "type": "string",
-              "description": "The separator used for building structured keys for includeKeys and excludeKeys. For more details: https://localazy.com/docs/cli/excluding-string-keys ",
-              "default": "."
-            },
-            "includeKeys": {
-              "type": [
-                "string",
-                "array"
-              ],
-              "description": "A list of rules for determining keys to include. For more details: https://localazy.com/docs/cli/excluding-string-keys",
-              "default": [],
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "items": true
-                }
-              ]
-            },
-            "excludeKeys": {
-              "type": [
-                "string",
-                "array"
-              ],
-              "description": "A list of rules for determining keys to exclude. For more details: https://localazy.com/docs/cli/excluding-string-keys",
-              "default": [],
-              "anyOf": [
-                {
-                  "type": "string"
-                },
-                {
-                  "items": true
-                }
-              ]
-            },
-            "langAliases": {
-              "type": "object",
-              "description": "Maps languages to different ones"
-            },
-            "langExpansions": {
-              "type": "object",
-              "description": "Adds additional languages to output; the same file will be saved several time."
-            },
-            "arrayType": {
-              "type": "string",
-              "description": "If the type supports more formats for string arrays, you can select the desired one with this parameter."
-            },
-            "pluralType": {
-              "type": "string",
-              "description": "If the type supports more formats for plurals, you can select the desired one with this parameter."
-            },
-            "forceArrayType": {
-              "type": "boolean",
-              "description": "If the conversion is made between types that support the same format for string arrays, the format is retained unless you explicitly set this parameter to true to force change.",
-              "default": "false"
-            },
-            "forcePluralType": {
-              "type": "boolean",
-              "description": "If the conversion is made between types that support the same format for plurals, the format is retained unless you explicitly set this parameter to true to force change.",
-              "default": "false"
-            },
-            "filterStrings": {
-              "type": "boolean",
-              "description": "If the conversion type allows filtering, you can enable this option to filter strings out of the output file.",
-              "default": "null"
-            },
-            "filterArrays": {
-              "type": "boolean",
-              "description": "If the conversion type allows filtering, you can enable this option to filter string arrays out of the output file.",
-              "default": "null"
-            },
-            "filterPlurals": {
-              "type": "boolean",
-              "description": "If the conversion type allows filtering, you can enable this option to filter plurals out of the output file.",
-              "default": "null"
-            },
-            "params": {
-              "properties": {
-                "filter_untranslated": {
-                  "type": "boolean",
-                  "description": "Filtering of untranslated phrases",
-                  "default": false
-                },
-                "flatten_keys": {
-                  "type": "string",
-                  "description": " Flattening structured keys",
-                  "default": "no"
-                },
-                "arb_locale": {
-                  "type": "string",
-                  "description": " Generating @@locale key",
-                  "default": "full"
-                },
-                "force_escaping": {
-                  "type": "boolean",
-                  "description": " Forcing aggressive escaping",
-                  "default": false
-                },
-                "encoding": {
-                  "type": "string",
-                  "description": " Output file encoding",
-                  "default": "utf8"
-                },
-                "lang_format": {
-                  "type": "string",
-                  "description": "Format of the locale used for multilingual keys",
-                  "default": "ll-rr-scrp"
-                },
-                "clear_params": {
-                  "type": "boolean",
-                  "description": "Clearing additional phrases metadata.",
-                  "default": false
-                }
+          "$id": "#/properties/actions",
+          "description": "Define the conversion rules here.",
+          "type": [
+            "array",
+            "object"
+          ],
+          "default": [],
+          "anyOf": [
+            {
+              "items": {
+                "$ref": "#/definitions/actions"
               }
+            },
+            {
+              "$ref": "#/definitions/actions"
             }
-          },
-          "required": [
-            "type"
           ]
         }
       }
@@ -429,7 +289,10 @@
         "yaml",
         "json5",
         "hjson",
-        "properties"
+        "properties",
+        "php",
+        "ini",
+        "qt-ts"
       ]
     },
     "conditions": {
@@ -598,6 +461,184 @@
           "description": "The library the file belongs to. See Modules, libraries, flavors for more details. https://localazy.com/docs/cli/modules-libraries-product-flavors#library"
         }
       }
+    },
+    "actions": {
+      "type": "object",
+      "properties": {
+        "group": {
+          "type": "string",
+          "description": "Allows to filter rules using groups. https://localazy.com/docs/cli/command-line-options#groups",
+          "default": ""
+        },
+        "stop": {
+          "type": "boolean",
+          "description": "If true, no more rules are processed for the given file. Only makes sense if more output rules are defined. By default, the first matching rule stops processing for the file.",
+          "default": false
+        },
+        "conditions": {
+          "type": [
+            "string",
+            "array"
+          ],
+          "description": "Allows for more complex filtering of rules. https://localazy.com/docs/cli/conditions",
+          "default": [],
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": true
+            }
+          ]
+        },
+        "changeExtension": {
+          "type": "string",
+          "description": "If defined, change the extension of the output file. Applied to the final output after resolving all variables.",
+          "default": ""
+        },
+        "output": {
+          "type": "string",
+          "description": "The pattern for generating output path and file. Use variables to build the pattern. https://localazy.com/docs/cli/variables"
+        },
+        "type": {
+          "type": "string",
+          "description": "The type of the conversion to be performed with files. See docs for available types and their parameters. https://localazy.com/docs/cli/format-conversions#available-conversions",
+          "enum": [
+            "android",
+            "arb",
+            "ini",
+            "ini-multilingual",
+            "ios-strings",
+            "ios-stringsdict",
+            "json",
+            "json-mozilla",
+            "json-multilingual",
+            "yaml",
+            "yaml-multilingual",
+            "yaml-rails"
+          ]
+        },
+        "keySeparator": {
+          "type": "string",
+          "description": "The separator used for building structured keys for includeKeys and excludeKeys. For more details: https://localazy.com/docs/cli/excluding-string-keys ",
+          "default": "."
+        },
+        "includeKeys": {
+          "type": [
+            "string",
+            "array"
+          ],
+          "description": "A list of rules for determining keys to include. For more details: https://localazy.com/docs/cli/excluding-string-keys",
+          "default": [],
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": true
+            }
+          ]
+        },
+        "excludeKeys": {
+          "type": [
+            "string",
+            "array"
+          ],
+          "description": "A list of rules for determining keys to exclude. For more details: https://localazy.com/docs/cli/excluding-string-keys",
+          "default": [],
+          "anyOf": [
+            {
+              "type": "string"
+            },
+            {
+              "items": true
+            }
+          ]
+        },
+        "langAliases": {
+          "type": "object",
+          "description": "Maps languages to different ones"
+        },
+        "langExpansions": {
+          "type": "object",
+          "description": "Adds additional languages to output; the same file will be saved several time."
+        },
+        "arrayType": {
+          "type": "string",
+          "description": "If the type supports more formats for string arrays, you can select the desired one with this parameter."
+        },
+        "pluralType": {
+          "type": "string",
+          "description": "If the type supports more formats for plurals, you can select the desired one with this parameter."
+        },
+        "forceArrayType": {
+          "type": "boolean",
+          "description": "If the conversion is made between types that support the same format for string arrays, the format is retained unless you explicitly set this parameter to true to force change.",
+          "default": false
+        },
+        "forcePluralType": {
+          "type": "boolean",
+          "description": "If the conversion is made between types that support the same format for plurals, the format is retained unless you explicitly set this parameter to true to force change.",
+          "default": false
+        },
+        "filterStrings": {
+          "type": "boolean",
+          "description": "If the conversion type allows filtering, you can enable this option to filter strings out of the output file.",
+          "default": false
+        },
+        "filterArrays": {
+          "type": "boolean",
+          "description": "If the conversion type allows filtering, you can enable this option to filter string arrays out of the output file.",
+          "default": false
+        },
+        "filterPlurals": {
+          "type": "boolean",
+          "description": "If the conversion type allows filtering, you can enable this option to filter plurals out of the output file.",
+          "default": false
+        },
+        "params": {
+          "properties": {
+            "filter_untranslated": {
+              "type": "boolean",
+              "description": "Filtering of untranslated phrases",
+              "default": false
+            },
+            "flatten_keys": {
+              "type": "string",
+              "description": " Flattening structured keys",
+              "default": "no"
+            },
+            "arb_locale": {
+              "type": "string",
+              "description": " Generating @@locale key",
+              "default": "full"
+            },
+            "force_escaping": {
+              "type": "boolean",
+              "description": " Forcing aggressive escaping",
+              "default": false
+            },
+            "encoding": {
+              "type": "string",
+              "description": " Output file encoding",
+              "default": "utf8"
+            },
+            "lang_format": {
+              "type": "string",
+              "description": "Format of the locale used for multilingual keys",
+              "default": "ll-rr-scrp"
+            },
+            "clear_params": {
+              "type": "boolean",
+              "description": "Clearing additional phrases metadata.",
+              "default": false
+            }
+          }
+        }
+      },
+      "required": [
+        "type"
+      ]
     }
   }
 }

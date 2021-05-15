@@ -30,7 +30,7 @@
     "conversion": {
       "folder": ".",
       "excludedLangs": ["cs", "de"],
-      "actions": {
+      "actions": [{
         "group": "conversion",
         "stop": false,
         "conditions": [ ],
@@ -64,7 +64,7 @@
           "lang_format": "ll-rr-scrp"
 
         }
-      }
+      }]
     }
   }
   
