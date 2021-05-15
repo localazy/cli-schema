@@ -565,11 +565,26 @@
         },
         "arrayType": {
           "type": "string",
-          "description": "If the type supports more formats for string arrays, you can select the desired one with this parameter."
+          "description": "If the type supports more formats for string arrays, you can select the desired one with this parameter.",
+          "enum": [
+            "array",
+            "array_br"
+          ]
         },
         "pluralType": {
           "type": "string",
-          "description": "If the type supports more formats for plurals, you can select the desired one with this parameter."
+          "description": "If the type supports more formats for plurals, you can select the desired one with this parameter.",
+          "enum": [
+            "plural_postfix_br",
+            "plural_postfix_sd",
+            "plural_postfix_dd",
+            "plural_postfix_us",
+            "plural_postfix_cc",
+            "plural_i18next",
+            "plural_object",
+            "plural_icu",
+            "plural_array"
+          ]
         },
         "forceArrayType": {
           "type": "boolean",
