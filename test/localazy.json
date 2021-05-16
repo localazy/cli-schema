@@ -21,6 +21,50 @@
 
   "download": {
     "files": "${path}/${lang}.json",
-    "metadataFileJs": "localazy-meta.js"
+    "metadataFileJs": "localazy-meta.js",
+    "langAliases": {
+      "zh-Hant-TW": "zh-TW"
+    }
+  },
+
+    "conversion": {
+      "folder": ".",
+      "excludedLangs": ["cs", "de"],
+      "actions": [{
+        "group": "conversion",
+        "stop": false,
+        "conditions": [ ],
+        "changeExtension": "xml",
+        "output": "path/${lang}/${file}",
+        "type": "json",
+        "keySeparator": ".",
+        "includeKeys": ["REGEX:key_.*"],
+        "excludeKeys": ["REGEX:private_.*"],   
+        "langAliases": {
+          "zh-Hant-TW": "zh-TW"
+        },
+        "langExpansions": {
+          "de": ["de-DE", "de-CH"]
+        },            
+        
+        "arrayType": "array_br",
+        "pluralType": "plural_icu",
+        "forceArrayType": false,
+        "forcePluralType": true,
+        "filterStrings": false,
+        "filterArrays": false,
+        "filterPlurals": false,      
+        "params": {
+          "filter_untranslated": false,
+          "arb_locale": "full",
+          "clear_params": false,
+          "encoding": "utf8",
+          "flatten_keys": "no",
+          "force_escaping": false,
+          "lang_format": "ll-rr-scrp"
+
+        }
+      }]
+    }
   }
-}
+  
