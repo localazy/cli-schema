@@ -1,2 +1,2 @@
 # cli-schema
-Localazy schema definitions
+Localazy CLI JSON schema definitions
