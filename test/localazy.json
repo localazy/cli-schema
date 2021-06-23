@@ -39,7 +39,11 @@
         "type": "json",
         "keySeparator": ".",
         "includeKeys": ["REGEX:key_.*"],
-        "excludeKeys": ["REGEX:private_.*"],   
+        "excludeKeys": ["REGEX:private_.*"],  
+        "replacements": {
+          "%d": "{{placeholder}}",
+          "REGEX:\\(([a-Z]+))": "{{(%1%)}}"
+        }, 
         "langAliases": {
           "zh-Hant-TW": "zh-TW"
         },

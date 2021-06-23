@@ -555,6 +555,11 @@
             }
           ]
         },
+        "replacements":{
+          "type": "object",
+          "description": "Define rules for text changes and placeholder replacements."
+
+        },
         "langAliases": {
           "type": "object",
           "description": "Maps languages to different ones"
