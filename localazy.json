@@ -292,7 +292,14 @@
         "properties",
         "php",
         "ini",
-        "qt-ts"
+        "qt-ts",
+        "neon",
+        "toml",
+        "csv",
+        "tsv",
+        "excel",
+        "ods",
+        "text"
       ]
     },
     "conditions": {
