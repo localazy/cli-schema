@@ -292,7 +292,14 @@
         "properties",
         "php",
         "ini",
-        "qt-ts"
+        "qt-ts",
+        "neon",
+        "toml",
+        "csv",
+        "tsv",
+        "excel",
+        "ods",
+        "text"
       ]
     },
     "conditions": {
@@ -506,6 +513,10 @@
           "enum": [
             "android",
             "arb",
+            "csv",
+            "csv-multilingual",
+            "excel",
+            "excel-multilingual",
             "ini",
             "ini-multilingual",
             "ios-strings",
@@ -513,6 +524,16 @@
             "json",
             "json-mozilla",
             "json-multilingual",
+            "mo",
+            "neon",
+            "neon-multilingual",
+            "ods",
+            "ods-multilingual",
+            "php",
+            "php-multilinngual",
+            "po",
+            "toml",
+            "toml-multilingual",
             "yaml",
             "yaml-multilingual",
             "yaml-rails"
@@ -558,6 +579,10 @@
         "langAliases": {
           "type": "object",
           "description": "Maps languages to different ones"
+        },
+        "replacements":{
+          "type": "object",
+          "description": "Define rules for text changes and placeholder replacements."
         },
         "langExpansions": {
           "type": "object",
