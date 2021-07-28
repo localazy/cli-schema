@@ -299,7 +299,8 @@
         "tsv",
         "excel",
         "ods",
-        "text"
+        "text",
+        "srt"
       ]
     },
     "conditions": {
