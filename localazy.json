@@ -4,7 +4,7 @@
   "type": "object",
   "default": {},
   "title": "Localazy CLI schema",
-  "description": "Schema definition for Localazy CLI configuration file",
+  "description": "Schema definition for Localazy CLI configuration file.",
   "required": [],
   "additionalProperties": false,
   "properties": {
@@ -79,7 +79,18 @@
           "title": "Description"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$.*$": {
+          "type": [
+            "string",
+            "array",
+            "object",
+            "number",
+            "boolean"
+          ]
+        }
+      }
     },
     "transformations": {
       "$id": "#/properties/transformations",
@@ -276,7 +287,18 @@
           ]
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$.*$": {
+          "type": [
+            "string",
+            "array",
+            "object",
+            "number",
+            "boolean"
+          ]
+        }
+      }
     },
     "conversion": {
       "$id": "#/properties/conversion",
@@ -320,7 +342,18 @@
           ]
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$.*$": {
+          "type": [
+            "string",
+            "array",
+            "object",
+            "number",
+            "boolean"
+          ]
+        }
+      }
     },
     "download": {
       "$id": "#/properties/download",
@@ -414,7 +447,18 @@
           ]
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$.*$": {
+          "type": [
+            "string",
+            "array",
+            "object",
+            "number",
+            "boolean"
+          ]
+        }
+      }
     }
   },
   "definitions": {
@@ -451,7 +495,18 @@
           ]
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$.*$": {
+          "type": [
+            "string",
+            "array",
+            "object",
+            "number",
+            "boolean"
+          ]
+        }
+      }
     },
     "features": {
       "type": "string",
@@ -687,7 +742,18 @@
           ]
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$.*$": {
+          "type": [
+            "string",
+            "array",
+            "object",
+            "number",
+            "boolean"
+          ]
+        }
+      }
     },
     "files": {
       "type": [
@@ -878,7 +944,18 @@
           "additionalProperties": true
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$.*$": {
+          "type": [
+            "string",
+            "array",
+            "object",
+            "number",
+            "boolean"
+          ]
+        }
+      }
     },
     "subtype_1": {
       "type": "object",
@@ -919,7 +996,18 @@
           "title": "Output pattern"
         }
       },
-      "additionalProperties": false
+      "additionalProperties": false,
+      "patternProperties": {
+        "^\\$.*$": {
+          "type": [
+            "string",
+            "array",
+            "object",
+            "number",
+            "boolean"
+          ]
+        }
+      }
     },
     "files_2": {
       "type": [
@@ -935,5 +1023,17 @@
         }
       ]
     }
+  },
+  "patternProperties": {
+    "^\\$.*$": {
+      "type": [
+        "string",
+        "array",
+        "object",
+        "number",
+        "boolean"
+      ]
+    }
   }
 }
+
