@@ -171,6 +171,13 @@
                     "description": "Tells the server to promote changes in translated files as approved and current translations for phrases that are already translated. If set to false, such changes go to the review process.",
                     "title": "Force current"
                 },
+                "forceSource": {
+                    "$id": "#/properties/upload/forceSource",
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Tells the server to promote changes from uploaded source language files even if there are different versions on Localazy.",
+                    "title": "Force source"
+                },
                 "appVersion": {
                     "$id": "#/properties/upload/appVersion",
                     "type": "number",
