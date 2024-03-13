@@ -215,7 +215,11 @@
                         "toml",
                         "excel",
                         "ods",
-                        "srt"
+                        "srt",
+                        "tmx",
+                        "xcstrings",
+                        "copy",
+                        "captivate"
                     ]
                 },
                 "folder": {
@@ -552,18 +556,25 @@
                 "use_project_lang",
                 "use_defined_lang_for_source",
                 "use_defined_lang_for_target",
+                "dont_fuzzy_match_lang",
                 "use_unicode",
                 "parse_plurals_ios",
                 "parse_plurals_icu",
                 "omit_id_for_source_is_key",
                 "decode_html_entities",
                 "store_attrs",
+                "ignore_original",
+                "ignore_id",
+                "ignore_extras",
                 "lang_root",
                 "output_mo",
                 "empty_untranslated",
                 "use_key_for_content",
                 "force_key_for_content",
                 "ignore_blank_content",
+                "skip_source",
+                "use_blank_content",
+                "preserve_comments",
                 "output_json",
                 "force_quotes",
                 "latin1",
@@ -581,6 +592,11 @@
                 "line_nr",
                 "line_n",
                 "line_r",
+                "use_key_for_source",
+                "omit_state",
+                "omit_extraction",
+                "keep_comments",
+                "dont_skip_placeholders",
                 "columns=",
                 "included_langs=",
                 "lang_format=ll-rr#scrp",
@@ -654,7 +670,11 @@
                         "toml",
                         "excel",
                         "ods",
-                        "srt"
+                        "srt",
+                        "tmx",
+                        "xcstrings",
+                        "copy",
+                        "captivate"
                     ]
                 },
                 "features": {
@@ -886,8 +906,12 @@
                         "php",
                         "php-multilingual",
                         "po",
+                        "tmx",
                         "toml",
                         "toml-multilingual",
+                        "xcstrings",
+                        "xliff12",
+                        "xliff20",
                         "yaml",
                         "yaml-multilingual",
                         "yaml-rails"
@@ -915,7 +939,8 @@
                         "plural_i18next",
                         "plural_object",
                         "plural_icu",
-                        "plural_array"
+                        "plural_array",
+                        "plural_br"
                     ]
                 },
                 "forceArrayType": {
