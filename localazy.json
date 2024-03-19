@@ -768,6 +768,91 @@
                             }
                         }
                     ]
+                },
+                "remap": {
+                    "type": "object",
+                    "description": "The remap property allows you to remap the structure of the file. https://localazy.com/docs/cli/remap",
+                    "title": "Remap",
+                    "properties": {
+                        "type": {
+                            "type": "string",
+                            "description": "The target type of the file to be uploaded data remapped to.",
+                            "title": "Remap type",
+                            "enum": [
+                                "android",
+                                "json",
+                                "json-multilingual",
+                                "arb",
+                                "require-js",
+                                "json-mozzila",
+                                "ios-strings",
+                                "ios-plist",
+                                "ios-stringsdict",
+                                "resx",
+                                "yaml",
+                                "yaml-rails",
+                                "yaml-multilingual",
+                                "po",
+                                "json5",
+                                "json5-multilingual",
+                                "hjson",
+                                "hjson-multilingual",
+                                "js",
+                                "js-multilingual",
+                                "properties",
+                                "ini",
+                                "ini-multilingual",
+                                "php",
+                                "php-multilingual",
+                                "qt-ts",
+                                "csv",
+                                "csv-multilingual",
+                                "neon",
+                                "neon-multilingual",
+                                "toml",
+                                "toml-multilingual",
+                                "excel",
+                                "excel-multilingual",
+                                "ods",
+                                "ods-multilingual",
+                                "tmx",
+                                "xcstrings",
+                                "api"
+                            ]
+                        },
+                        "flatten": {
+                            "type": "string",
+                            "description": "A separator to be used for flattening structured/nested keys.",
+                            "title": "Flatten"
+                        },
+                        "nest": {
+                            "type": "string",
+                            "description": "A separator to be used for nesting flatten keys.",
+                            "title": "Nest"
+                        },
+                        "array": {
+                            "type": "string",
+                            "description": "A type of plural to be used for remapping plurals.",
+                            "title": "Array"
+                        },
+                        "plural": {
+                            "type": "string",
+                            "description": "A type of arrays to be used for remapping arrays.",
+                            "title": "Plural"
+                        }
+                    },
+                    "additionalProperties": false,
+                    "patternProperties": {
+                        "^\\$.*$": {
+                            "type": [
+                                "string",
+                                "array",
+                                "object",
+                                "number",
+                                "boolean"
+                            ]
+                        }
+                    }
                 }
             },
             "additionalProperties": false,
