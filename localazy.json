@@ -219,7 +219,8 @@
                         "tmx",
                         "xcstrings",
                         "copy",
-                        "captivate"
+                        "captivate",
+                        "ispring"
                     ]
                 },
                 "folder": {
@@ -400,6 +401,12 @@
                     "type": "string",
                     "description": "Path where TypeScript language metadata file should be downloaded. https://localazy.com/docs/cli/metadata-file",
                     "title": "TypeScript metadata file"
+                },
+                "metadataVersion": {
+                    "$id": "#/properties/download/metadataVersion",
+                    "type": "string",
+                    "description": "By default, export oldest metadata format. Set it to 2 to export the newest metadata format.",
+                    "title": "Metadata file version"
                 },
                 "langAliases": {
                     "$id": "#/properties/download/langAliases",
@@ -674,7 +681,8 @@
                         "tmx",
                         "xcstrings",
                         "copy",
-                        "captivate"
+                        "captivate",
+                        "ispring"
                     ]
                 },
                 "features": {
