@@ -178,6 +178,30 @@
                     "description": "Tells the server to promote changes from uploaded source language files even if there are different versions on Localazy.",
                     "title": "Force source"
                 },
+                "noSourceChanged": {
+                    "$id": "#/properties/upload/noSourceChanged",
+                    "type": [
+                        "boolean",
+                        "string",
+                        "array"
+                    ],
+                    "description": "When set to `true`, uploading changed source strings will not mark existing translations as having source changed for any language. Set to a list of language codes (e.g. `[\"en\", \"es\"]`) to limit the effect to specific languages, or to `\"all\"` as a string alias for `true`.",
+                    "title": "No source changed",
+                    "anyOf": [
+                        {
+                            "type": "boolean"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    ]
+                },
                 "appVersion": {
                     "$id": "#/properties/upload/appVersion",
                     "type": "number",
@@ -575,6 +599,7 @@
                 "ignore_original",
                 "ignore_id",
                 "ignore_extras",
+                "no_indentation",
                 "decode_tags",
                 "encode_output",
                 "lang_root",
